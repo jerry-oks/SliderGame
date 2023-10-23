@@ -11,6 +11,7 @@
 		3B06D8662AE6ED9B006788E6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B06D8652AE6ED9B006788E6 /* ContentView.swift */; };
 		3B06D8682AE6ED9D006788E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B06D8672AE6ED9D006788E6 /* Assets.xcassets */; };
 		3B06D86B2AE6ED9D006788E6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B06D86A2AE6ED9D006788E6 /* Preview Assets.xcassets */; };
+		3B06D8722AE6EE72006788E6 /* UISliderRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B06D8712AE6EE72006788E6 /* UISliderRepresentation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		3B06D8652AE6ED9B006788E6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3B06D8672AE6ED9D006788E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B06D86A2AE6ED9D006788E6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3B06D8712AE6EE72006788E6 /* UISliderRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISliderRepresentation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				3B06D8632AE6ED9B006788E6 /* SliderGameApp.swift */,
 				3B06D8652AE6ED9B006788E6 /* ContentView.swift */,
+				3B06D8712AE6EE72006788E6 /* UISliderRepresentation.swift */,
 				3B06D8672AE6ED9D006788E6 /* Assets.xcassets */,
 				3B06D8692AE6ED9D006788E6 /* Preview Content */,
 			);
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B06D8662AE6ED9B006788E6 /* ContentView.swift in Sources */,
+				3B06D8722AE6EE72006788E6 /* UISliderRepresentation.swift in Sources */,
 				3B06D8642AE6ED9B006788E6 /* SliderGameApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
