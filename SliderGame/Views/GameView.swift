@@ -14,7 +14,7 @@ struct GameView: View {
     var body: some View {
         VStack {
             GameModePickerView(gameMode: $gameManager.selectedGameMode)
-                .onChange(of: gameManager.selectedGameMode) { newValue in
+                .onChange(of: gameManager.selectedGameMode) { _ in
                     gameManager.setGameMode()
                 }
             

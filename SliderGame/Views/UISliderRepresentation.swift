@@ -12,7 +12,7 @@ struct UISliderRepresentation: UIViewRepresentable {
     @Binding var max: Int
     @Binding var value: Float
     
-    var opacity: Double
+    let opacity: Double
     
     func makeUIView(context: Context) -> UISlider {
         let slider = UISlider()
@@ -30,12 +30,7 @@ struct UISliderRepresentation: UIViewRepresentable {
         uiView.value = value
         uiView.minimumValue = Float(min)
         uiView.maximumValue = Float(max)
-        uiView.thumbTintColor = UIColor(
-            red: 1,
-            green: 0,
-            blue: 0,
-            alpha: opacity
-        )
+        uiView.thumbTintColor = UIColor.systemRed.withAlphaComponent(opacity)
     }
     
     func makeCoordinator() -> Coordinator {
