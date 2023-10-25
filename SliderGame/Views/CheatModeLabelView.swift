@@ -34,7 +34,7 @@ struct CheatModeLabelView: View {
             }
             
             HStack {
-                Text("Количество очков:")
+                Text("Количество баллов:")
                 Text(gameManager.computeScore().formatted())
                     .foregroundStyle(
                         gameManager.computeScore() == 100
