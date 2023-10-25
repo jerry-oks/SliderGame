@@ -18,7 +18,6 @@ enum GameMode: String {
         switch self {
         case .light:
             Game(
-                mode: .light,
                 min: 0,
                 max: 100,
                 targetValueIsVisible: true,
@@ -27,7 +26,6 @@ enum GameMode: String {
             )
         case .medium:
             Game(
-                mode: .medium,
                 min: Int.random(in: 0...50),
                 max: Int.random(in: 150...200),
                 targetValueIsVisible: true,
@@ -36,7 +34,6 @@ enum GameMode: String {
             )
         case .hard:
             Game(
-                mode: .hard,
                 min: Int.random(in: 0...100),
                 max: Int.random(in: 200...300),
                 targetValueIsVisible: false,
@@ -45,7 +42,6 @@ enum GameMode: String {
             )
         case .xhard:
             Game(
-                mode: .xhard,
                 min: Int.random(in: 0...100),
                 max: Int.random(in: 200...300),
                 targetValueIsVisible: false,
@@ -54,7 +50,6 @@ enum GameMode: String {
             )
         case .impossible:
             Game(
-                mode: .impossible,
                 min: Int.random(in: 0...100),
                 max: Int.random(in: 200...300),
                 targetValueIsVisible: false,
@@ -66,7 +61,6 @@ enum GameMode: String {
 }
 
 struct Game {
-    let mode: GameMode
     var min: Int
     var max: Int
     let targetValueIsVisible: Bool
