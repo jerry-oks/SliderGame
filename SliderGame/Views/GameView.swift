@@ -13,18 +13,14 @@ struct GameView: View {
     
     var body: some View {
         VStack {
-            CheatModeLabelView(
-                currentValue: $gameManager.game.currentValue,
-                targetValue: $gameManager.game.targetValue,
-                counter: $gameManager.cheatModeCounter
-            )
-            
-            Spacer()
-            
-            GameModePickerView(gameMode: $gameManager.selectedGameMode, actionOnChange: gameManager.setGameMode)
+            GameModePickerView(gameMode: $gameManager.selectedGameMode)
                 .onChange(of: gameManager.selectedGameMode) { newValue in
                     gameManager.setGameMode()
                 }
+            
+            Spacer()
+            
+            CheatModeLabelView()
             
             Spacer()
             
@@ -32,19 +28,10 @@ struct GameView: View {
                  ? "Подвиньте слайдер как можно ближе к \(gameManager.game.targetValue.formatted())"
                  : "Выберите правильное положение слайдера"
             )
-                .onTapGesture(perform: gameManager.cheatAction)
-                .padding(.bottom)
+            .onTapGesture(perform: gameManager.cheatAction)
+            .padding(.bottom)
             
-            HStack {
-                Text(gameManager.game.intervalIsVisible ? gameManager.game.min.formatted() : "???")
-                UISliderRepresentation(
-                    min: $gameManager.game.min,
-                    max: $gameManager.game.max,
-                    value: $gameManager.game.currentValue,
-                    opacity: gameManager.game.thumbIsTranslucent ? gameManager.opacityFromScore() : 1
-                )
-                Text(gameManager.game.intervalIsVisible ? gameManager.game.max.formatted() : "???")
-            }
+            SliderView()
             
             Button("Проверь меня!") {
                 isPresented.toggle()
@@ -63,15 +50,14 @@ struct GameView: View {
             }
             .padding()
             
-            Button("Начать заново", action: gameManager.startOver)
+            Button("Начать заново", action: gameManager.setGameMode)
             
             Spacer()
-            
-            Text(gameManager.computeScore().formatted())
-            
+            Spacer()
             Spacer()
         }
         .padding()
+        .environmentObject(gameManager)
         .onAppear {
             gameManager.setGameMode()
         }

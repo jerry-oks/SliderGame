@@ -16,6 +16,7 @@
 		3B06D8782AE855BF006788E6 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B06D8772AE855BF006788E6 /* Game.swift */; };
 		3B06D87A2AE858AC006788E6 /* GameModePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B06D8792AE858AC006788E6 /* GameModePickerView.swift */; };
 		3B06D87C2AE85CE1006788E6 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B06D87B2AE85CE1006788E6 /* GameManager.swift */; };
+		3B06D8822AE8FBAE006788E6 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B06D8812AE8FBAE006788E6 /* SliderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		3B06D8772AE855BF006788E6 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		3B06D8792AE858AC006788E6 /* GameModePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModePickerView.swift; sourceTree = "<group>"; };
 		3B06D87B2AE85CE1006788E6 /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
+		3B06D8812AE8FBAE006788E6 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				3B06D8792AE858AC006788E6 /* GameModePickerView.swift */,
 				3B06D8752AE854BA006788E6 /* CheatModeLabelView.swift */,
 				3B06D8712AE6EE72006788E6 /* UISliderRepresentation.swift */,
+				3B06D8812AE8FBAE006788E6 /* SliderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B06D87A2AE858AC006788E6 /* GameModePickerView.swift in Sources */,
+				3B06D8822AE8FBAE006788E6 /* SliderView.swift in Sources */,
 				3B06D8762AE854BA006788E6 /* CheatModeLabelView.swift in Sources */,
 				3B06D8782AE855BF006788E6 /* Game.swift in Sources */,
 				3B06D87C2AE85CE1006788E6 /* GameManager.swift in Sources */,

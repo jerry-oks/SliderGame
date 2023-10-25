@@ -10,7 +10,6 @@ import SwiftUI
 struct GameModePickerView: View {
     @Binding var gameMode: String
     
-    let actionOnChange: () -> Void
     let gameModes = ["😀", "🙂", "😰", "🤯", "💀"]
     
     var body: some View {
@@ -31,5 +30,5 @@ struct GameModePickerView: View {
 }
 
 #Preview {
-    GameModePickerView(gameMode: .constant("😀"), actionOnChange: {})
+    GameModePickerView(gameMode: .constant("😀"))
 }

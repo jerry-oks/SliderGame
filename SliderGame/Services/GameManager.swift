@@ -13,6 +13,8 @@ final class GameManager: ObservableObject {
     @Published var game = GameMode.light.mode
 
     func setGameMode() {
+        cheatModeCounter = 0
+        
         switch selectedGameMode {
         case "🙂":
             game = GameMode.medium.mode
@@ -31,10 +33,10 @@ final class GameManager: ObservableObject {
     }
     
     func computeScore() -> Int {
-        let multiplier = Double(game.max - game.min) / 100
-        let targetValue = Double(game.targetValue - game.min) / multiplier
-        let currentValue = (Double(game.currentValue) - Double(game.min)) / multiplier
-        let difference = abs(lround(targetValue) - lround(currentValue))
+        let multiplier = Float(game.max - game.min) / 100
+        let targetValue = Float(game.targetValue - game.min) / multiplier
+        let currentValue = (game.currentValue - Float(game.min)) / multiplier
+        let difference = abs(lroundf(targetValue) - lroundf(currentValue))
         return 100 - difference
     }
     
@@ -62,11 +64,6 @@ final class GameManager: ObservableObject {
         cheatModeCounter = cheatModeCounter < 10
         ? cheatModeCounter + 1
         : 0
-    }
-    
-    func startOver() {
-        setGameMode()
-        cheatModeCounter = 0
     }
     
     func opacityFromScore() -> Double {

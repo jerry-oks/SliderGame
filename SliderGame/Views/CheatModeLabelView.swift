@@ -8,23 +8,45 @@
 import SwiftUI
 
 struct CheatModeLabelView: View {
-    @Binding var currentValue: Float
-    @Binding var targetValue: Int
-    @Binding var counter: Int
+    @EnvironmentObject var gameManager: GameManager
     
     var body: some View {
         VStack {
             Text("Чит-моуд активэйтед 😎")
-            Text(lroundf(currentValue).formatted())
-                .foregroundStyle(
-                    lroundf(currentValue) == targetValue
-                    ? .green
-                    : .red
-                )
+                .padding(.bottom)
+            
+            HStack {
+                Text("Загаданное число:")
+                Text(gameManager.game.targetValue.formatted())
+                    .foregroundStyle(.green)
+                    .frame(width: 40)
+            }
+            
+            HStack {
+                Text("Выбранное число:")
+                Text(lroundf(gameManager.game.currentValue).formatted())
+                    .foregroundStyle(
+                        lroundf(gameManager.game.currentValue) == gameManager.game.targetValue
+                        ? .green
+                        : .red
+                    )
+                    .frame(width: 40)
+            }
+            
+            HStack {
+                Text("Количество очков:")
+                Text(gameManager.computeScore().formatted())
+                    .foregroundStyle(
+                        gameManager.computeScore() == 100
+                        ? .green
+                        : .red
+                    )
+                    .frame(width: 40)
+            }
         }
         .padding()
         .background(.quaternary, in: .rect(cornerRadius: 16))
-        .opacity(counter == 10 ? 0.5 : 0)
-        .animation(.default, value: counter)
+        .opacity(gameManager.cheatModeCounter == 10 ? 0.5 : 0)
+        .animation(.default, value: gameManager.cheatModeCounter)
     }
 }

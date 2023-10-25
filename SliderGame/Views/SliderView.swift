@@ -8,11 +8,23 @@
 import SwiftUI
 
 struct SliderView: View {
+    @EnvironmentObject var gameManager: GameManager
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Text(gameManager.game.intervalIsVisible ? gameManager.game.min.formatted() : "???")
+            UISliderRepresentation(
+                min: $gameManager.game.min,
+                max: $gameManager.game.max,
+                value: $gameManager.game.currentValue,
+                opacity: gameManager.game.thumbIsTranslucent ? gameManager.opacityFromScore() : 1
+            )
+            Text(gameManager.game.intervalIsVisible ? gameManager.game.max.formatted() : "???")
+        }
     }
 }
 
 #Preview {
     SliderView()
+        .environmentObject(GameManager())
 }
