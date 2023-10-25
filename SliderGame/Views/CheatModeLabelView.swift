@@ -15,38 +15,41 @@ struct CheatModeLabelView: View {
             Text("Чит-моуд активэйтед 😎")
                 .padding(.bottom)
             
-            HStack {
-                Text("Загаданное число:")
-                Text(gameManager.game.targetValue.formatted())
-                    .foregroundStyle(.green)
-                    .frame(width: 40)
-            }
+            TextValueView(
+                description: "Загаданное число:",
+                value: gameManager.game.targetValue.formatted()
+            )
+
+            TextValueView(
+                description: "Выбранное число:",
+                value: lroundf(gameManager.game.currentValue).formatted(),
+                colorChangeCondition: lroundf(gameManager.game.currentValue) == gameManager.game.targetValue
+            )
             
-            HStack {
-                Text("Выбранное число:")
-                Text(lroundf(gameManager.game.currentValue).formatted())
-                    .foregroundStyle(
-                        lroundf(gameManager.game.currentValue) == gameManager.game.targetValue
-                        ? .green
-                        : .red
-                    )
-                    .frame(width: 40)
-            }
-            
-            HStack {
-                Text("Количество баллов:")
-                Text(gameManager.computeScore().formatted())
-                    .foregroundStyle(
-                        gameManager.computeScore() == 100
-                        ? .green
-                        : .red
-                    )
-                    .frame(width: 40)
-            }
+            TextValueView(
+                description: "Количество баллов:",
+                value: gameManager.computeScore().formatted(),
+                colorChangeCondition: gameManager.computeScore() == 100
+            )
         }
         .padding()
         .background(.quaternary, in: .rect(cornerRadius: 16))
         .opacity(gameManager.cheatModeCounter == 10 ? 0.5 : 0)
         .animation(.default, value: gameManager.cheatModeCounter)
+    }
+}
+
+struct TextValueView: View {
+    let description: String
+    let value: String
+    var colorChangeCondition: Bool = true
+    
+    var body: some View {
+        HStack {
+            Text(description)
+            Text(value)
+                .foregroundStyle(colorChangeCondition ? .green : .red)
+                .frame(width: 40)
+        }
     }
 }
