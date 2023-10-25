@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct UISliderRepresentation: UIViewRepresentable {
+    @Binding var min: Int
+    @Binding var max: Int
     @Binding var value: Float
-    var score: Int
+    
+    var opacity: Double
     
     func makeUIView(context: Context) -> UISlider {
         let slider = UISlider()
-        slider.minimumValue = 0
-        slider.maximumValue = 100
+        slider.minimumValue = Float(min)
+        slider.maximumValue = Float(max)
         slider.addTarget(
             context.coordinator,
             action: #selector(context.coordinator.valueChanged),
@@ -25,25 +28,31 @@ struct UISliderRepresentation: UIViewRepresentable {
     
     func updateUIView(_ uiView: UISlider, context: Context) {
         uiView.value = value
+        uiView.minimumValue = Float(min)
+        uiView.maximumValue = Float(max)
         uiView.thumbTintColor = UIColor(
             red: 1,
             green: 0,
             blue: 0,
-            alpha: Double(score) / 100
+            alpha: opacity
         )
     }
     
     func makeCoordinator() -> Coordinator {
-        Coordinator(value: $value)
+        Coordinator(min: $min, max: $max, value: $value)
     }
 }
 
 extension UISliderRepresentation {
     class Coordinator: NSObject {
+        @Binding var min: Int
+        @Binding var max: Int
         @Binding var value: Float
 
-        init(value: Binding<Float>) {
+        init(min: Binding<Int>, max: Binding<Int>, value: Binding<Float>) {
             _value = value
+            _min = min
+            _max = max
         }
 
         @objc func valueChanged(_ sender: UISlider) {
@@ -53,5 +62,5 @@ extension UISliderRepresentation {
 }
 
 #Preview {
-    UISliderRepresentation(value: .constant(10), score: 50)
+    UISliderRepresentation(min: .constant(0), max: .constant(100), value: .constant(10), opacity: 1)
 }
